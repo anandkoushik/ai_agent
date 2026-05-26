@@ -1,0 +1,15 @@
+pandas==2.2.2
+chardet==5.2.0
+PyMuPDF==1.24.1
+Pillow==10.3.0
+librosa==0.10.1
+chromadb==0.4.24
+sentence-transformers==2.7.0
+sqlalchemy==2.0.29
+psycopg2-binary==2.9.9
+torch
+transformers
+datasets
+fastapi
+uvicorn
+python-multipart

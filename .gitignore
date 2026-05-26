@@ -1,0 +1,14 @@
+venv_mac/
+venv/
+__pycache__/
+node_modules/
+.env
+.DS_Store
+*.zip
+workspaces/
+rag_db/
+trained_model.pt
+pgsql/
+postgres.zip
+yolov8n.pt
+*.pt

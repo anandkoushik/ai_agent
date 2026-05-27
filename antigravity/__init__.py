@@ -1,26 +1,23 @@
 """
-antigravity — Unified ML Training & Inference Package
+antigravity — Unified ML Training, Inference & Intelligence Package
+
+Modules:
+    port       — YOLO / Whisper / LLM / Vision training & inference
+    ml         — XGBoost tabular prediction pipeline
+    llm        — Qwen local LLM inference client
+    pipeline   — Unified intelligent_response() combining XGBoost + Qwen
 
 Quick start:
-    from antigravity import port
-
-    # Check system readiness
-    port.health_check()
-
-    # Train a model
-    port.train(model_type="yolo", dataset_path="./data", epochs=50)
-
-    # Run inference
-    port.infer(model_type="whisper", model_path="./models/whisper", input_file="audio.wav")
-
-    # Export trained model as ZIP
-    port.export_model(model_type="llm", model_name="tinyllama", workspace_dir="./ws")
+    from antigravity import train, infer, health_check
+    from antigravity import intelligent_response, predict, ask_qwen
 """
 
 from . import port
+from .pipeline import intelligent_response, train_and_explain
+from .ml.xgb_model import predict, train_xgb, load_model, save_model, feature_importance
+from .llm.qwen_client import ask_qwen, ask_qwen_stream, unload_model
 
-# Re-export top-level functions for convenience:
-#   from antigravity import train, infer, health_check
+# Re-export port-level functions
 train = port.train
 infer = port.infer
 export_model = port.export_model
@@ -30,6 +27,7 @@ SUPPORTED_TRAINING_TYPES = port.SUPPORTED_TRAINING_TYPES
 SUPPORTED_INFERENCE_TYPES = port.SUPPORTED_INFERENCE_TYPES
 
 __all__ = [
+    # port (deep learning)
     "port",
     "train",
     "infer",
@@ -37,4 +35,17 @@ __all__ = [
     "health_check",
     "SUPPORTED_TRAINING_TYPES",
     "SUPPORTED_INFERENCE_TYPES",
+    # ml (XGBoost)
+    "predict",
+    "train_xgb",
+    "load_model",
+    "save_model",
+    "feature_importance",
+    # llm (Qwen)
+    "ask_qwen",
+    "ask_qwen_stream",
+    "unload_model",
+    # pipeline (unified)
+    "intelligent_response",
+    "train_and_explain",
 ]

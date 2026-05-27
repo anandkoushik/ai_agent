@@ -13,3 +13,7 @@ datasets
 fastapi
 uvicorn
 python-multipart
+python-dotenv
+litellm
+ultralytics
+PyYAML
